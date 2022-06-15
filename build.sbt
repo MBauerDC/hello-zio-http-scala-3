@@ -2,12 +2,12 @@ enablePlugins(GraalVMNativeImagePlugin)
 
 name := "hello-zio-http"
 
-scalaVersion := "2.13.7"
+scalaVersion := "3.1.2"
 
 libraryDependencies ++= Seq(
-  "dev.zio" %% "zio" % "1.0.12",
-  "io.d11" %% "zhttp" % "1.0.0.0-RC18",
-  "org.scalameta" %% "svm-subs" % "20.2.0",
+  "dev.zio" %% "zio" % "2.0.0-RC6",
+  "io.d11" %% "zhttp" % "2.0.0-RC9",
+//  "org.scalameta" %% "svm-subs" % "20.2.0",
 )
 
 Compile / doc / sources := Seq.empty
@@ -36,6 +36,6 @@ graalVMNativeImageOptions ++= Seq(
 )
 
 
-//fork := true
+fork := true
 
-//run / javaOptions += s"-agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/native-image"
+run / javaOptions += s"-agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/native-image"
