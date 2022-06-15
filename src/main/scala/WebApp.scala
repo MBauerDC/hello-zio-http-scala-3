@@ -1,11 +1,11 @@
 import zhttp.http._
 import zhttp.service.Server
-import zio.{App, ExitCode, URIO}
+import zio._
 
-object WebApp extends App {
+object WebApp extends ZIOAppDefault {
 
   val app = Http.text("hello, world")
 
-  override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = Server.start(8080, app).exitCode
+  def run = Server.start(8080, app).exitCode
 
 }
